@@ -121,6 +121,6 @@ call plug#end()
 
 	map <C-n> :call RelNumberToggle()<CR>
 
-"Tabcopletion"
+"Tabcompletion"
 	set wildmode=longest,list,full
 	set wildmenu
