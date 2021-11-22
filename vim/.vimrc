@@ -77,6 +77,7 @@ runtime! archlinux.vim
 "Plugins"
 call plug#begin('~/.vim/plugged')
 Plug 'junegunn/goyo.vim'
+Plug 'preservim/nerdtree'
 call plug#end()
 
 "Header Files"
@@ -102,6 +103,8 @@ call plug#end()
 	map <F7> :set spelllang=en<CR>
 
 	autocmd FileType tex setlocal spell spelllang=de
+	autocmd FileType markdown setlocal spell spelllang=de,en
+	autocmd FileType markdown setlocal complete+=kspell
 	autocmd FileType cpp setlocal spell spelllang=en
 	autocmd FileType hpp setlocal spell spelllang=en
 	autocmd FileType h setlocal spell spelllang=en
