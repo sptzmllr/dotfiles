@@ -10,6 +10,9 @@ super + Return
 super + b
 	firefox
 
+super + n
+	sudo -A wpa_gui
+
 # KeePass
 super + p
 	keepassxc
@@ -17,9 +20,6 @@ super + p
 # program launcher
 super + @space
 	rofi -show run -theme nord -font "roboto mono 11"
-
-super + q
-	echo hello
 
 # Audio and Brigtness
 XF86AudioRaiseVolume
