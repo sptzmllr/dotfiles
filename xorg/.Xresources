@@ -1,6 +1,7 @@
 
 ! Font declaration
-URxvt.font: xft:Roboto Mono:size=11
+!URxvt.font: xft:Roboto Mono:size=11
+URxvt.font: xft:RobotoMono Nerd Font:size=11
 
 ! Disable Scrollbar
 URxvt*scrollBar: false
