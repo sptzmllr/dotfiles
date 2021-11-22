@@ -10,3 +10,5 @@ Stow symlinks the contents of this Repository to the path relativ from the Deplo
 
 For a single configuration you can use i.e. `stow -vt ~ vim` to deploy the contents of the `/vim` folder to the Home Directory.
 To deploy everything just use `stow -vt ~ *`
+
+![Screenshot](image/desktop_screenshot_0.png)
