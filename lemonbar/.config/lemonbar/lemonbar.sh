@@ -111,9 +111,8 @@ while :; do
 	sleep 5
 done &
 
-
 # Volume
-while :; do
+while read -r line; do
     #current=$(pactl list sinks | awk '/\tVolume/ {print $5}')
 	current=$(pactl list sinks | grep -A7 $(pactl info | awk '/Default Sink:/ {print $3}') | awk '/\tVolume/ {print $5}')
     current_n=$(cut -d'%' -f1 <<< $current)
@@ -132,7 +131,7 @@ while :; do
     echo "VOL${icon}" > $fifo
 
     sleep 0.5
-done &
+done < <(pactl subscribe) &
 
 # Battery
 while :; do
