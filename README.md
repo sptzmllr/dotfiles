@@ -4,6 +4,8 @@ These are my dotfiles deployed by [GNU Stow](https://www.gnu.org/software/stow/)
 Stow symlinks the contents of this Repository to the path relativ from the Deploy Directory.
 
 - Settings for:
+	- bspwm
+	- sxhkd
 	- vim
 	- nvim
 	- Xorg
