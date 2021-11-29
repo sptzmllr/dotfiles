@@ -2,7 +2,7 @@
 
 sxhkd &
 xset b off &
-nitrogen --restore &
+~/.config/feh/.fehbg &
 xmodmap ~/.Xmodmap &
 solaar -w hide & 
 ~/.config/lemonbar/lemonbar.sh &
