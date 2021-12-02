@@ -103,6 +103,7 @@ call plug#end()
 	autocmd FileType tex setlocal spell spelllang=de
 	autocmd FileType markdown setlocal spell spelllang=de,en
 	autocmd FileType markdown setlocal complete+=kspell
+	autocmd FileType text setlocal spell spelllang=de,en
 	autocmd FileType cpp setlocal spell spelllang=en
 	autocmd FileType hpp setlocal spell spelllang=en
 	autocmd FileType h setlocal spell spelllang=en
