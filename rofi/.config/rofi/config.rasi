@@ -1,0 +1,3 @@
+configuration {
+	font: "roboto mono 11";
+}

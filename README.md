@@ -9,6 +9,7 @@ Stow symlinks the contents of this Repository to the path relativ from the Deplo
 	- bspwm
 	- sxhkd
 	- vim
+	- rofi
 	- nvim
 	- Xorg
 	- zsh
@@ -33,5 +34,9 @@ My Aliases and Funktions are in `~/.config/zsh/aliasrc'.
 On my lemonbar i am somewhat proud.
 It works very well with bspwm but feel free to cherry-pick individual parts and modify it.  
 My focus was on minimalistic but also verbose icons an information. For example the exact brightness and volume-levels are not relevant in everyday use and are displayed as symbols. But if you click on the icons the exact percentage is displayed for 10 seconds and then hides itself again.
+
+## Rofi
+I use [Rofi](https://github.com/davatorium/rofi) as my Application launcher.
+I used [this](https://github.com/amayer5125/nord-rofi) configuration, made it a litle bit darker and added a yellow border like my bspwm windows.
 
 
