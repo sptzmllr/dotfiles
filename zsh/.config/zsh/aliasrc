@@ -1,0 +1,22 @@
+
+export EDITOR=nvim
+alias mutt='neomutt'
+
+# Change to neovim
+alias vim='nvim'
+# Shred files make -u deallocate, -z final zeros, -n2 tworounds random
+alias shred='shred -uzn2'
+
+# ls
+alias ls='ls --color=auto'
+alias ll='ls -lah'
+
+# mkdir
+# Allways make parents
+alias mkdir='mkdir -p'
+# Make and change
+mkcdir ()
+{
+	mkdir -p -- "$1" &&
+		cd -- "$1"
+}

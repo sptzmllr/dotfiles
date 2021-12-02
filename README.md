@@ -11,9 +11,16 @@ Stow symlinks the contents of this Repository to the path relativ from the Deplo
 	- vim
 	- nvim
 	- Xorg
+	- zsh
 
 For a single configuration you can use i.e. `stow -vt ~ vim` to deploy the contents of the `/vim` folder to the Home Directory.
 To deploy everything just use `stow -vt ~ *`
+
+## ZSH
+
+I use ZSH and focus on using it without the grate work of big Plugin-manager like [Oh My Zsh](https://github.com/ohmyzsh/ohmyzsh).
+At this time i use the [pure promt](https://github.com/sindresorhus/pure) follow the instructions there for installation. Note i don't have a `~/.zsh` directory instead i have the repo in my `~/code` directory. Tweak this in your deployment in the `~/.zshrc`.
+My Aliases and Funktions are in `~/.config/zsh/aliasrc'.
 
 ## Lemonbar
 ![Lemonbar](image/desktop_lemonbar_0.gif)
