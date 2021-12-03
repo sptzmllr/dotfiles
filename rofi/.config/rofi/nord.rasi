@@ -26,7 +26,7 @@
     normal-foreground: var(foreground);
     alternate-normal-background: var(background);
     alternate-normal-foreground: var(foreground);
-    selected-normal-background: var(nord8);
+    selected-normal-background: var(nord9);
     selected-normal-foreground: var(background);
 
     active-background: var(background);
