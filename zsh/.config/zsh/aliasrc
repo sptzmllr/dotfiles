@@ -4,6 +4,7 @@ alias mutt='neomutt'
 
 # Change to neovim
 alias vim='nvim'
+alias pvim='nvim -u NONE -c "setlocal history=0 nobackup nomodeline noshelltemp noswapfile noundofile nowritebackup secure viminfo=\"\""'
 # Shred files make -u deallocate, -z final zeros, -n2 tworounds random
 alias shred='shred -uzn2'
 
