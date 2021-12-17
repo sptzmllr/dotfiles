@@ -8,6 +8,9 @@ alias pvim='nvim -u NONE -c "setlocal history=0 nobackup nomodeline noshelltemp 
 # Shred files make -u deallocate, -z final zeros, -n2 tworounds random
 alias shred='shred -uzn2'
 
+#clear
+alias c='clear'
+
 # ls
 alias ls='ls --color=auto'
 alias ll='ls -lah'
