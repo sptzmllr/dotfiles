@@ -19,7 +19,7 @@ To deploy everything just use `stow -vt ~ *`
 
 ## ZSH
 
-I use [ZSH](https://archlinux.org/packages/extra/x86_64/zsh/) and focus on using it without the grade work of big Plugin-Manager like [Oh My Zsh](https://github.com/ohmyzsh/ohmyzsh).
+I use [ZSH](https://archlinux.org/packages/extra/x86_64/zsh/) and focus on using it without the great work of big Plugin-Manager like [Oh My Zsh](https://github.com/ohmyzsh/ohmyzsh).
 ### Dependencies
 - [ZSH](https://archlinux.org/packages/extra/x86_64/zsh/)
 - [zsh-syntax-highlighting](https://archlinux.org/packages/community/any/zsh-syntax-highlighting/)
