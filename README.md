@@ -17,6 +17,15 @@ Stow symlinks the contents of this Repository to the path relativ from the Deplo
 For a single configuration you can use i.e. `stow -vt ~ vim` to deploy the contents of the `/vim` folder to the Home Directory.
 To deploy everything just use `stow -vt ~ *`
 
+## nvim
+
+I also use this repo to synch my Spellchecking-Word-List. Spell generates a binary file with the `.spl` extension which can have compatibility issues between versions and forks of vim.
+To generate the `.spl`-file execute in vim:
+```
+mkspell! ~/.config/nvim/spell/de.utf-8.add
+mkspell! ~/.config/nvim/spell/en.utf-8.add
+```
+
 ## ZSH
 
 I use [ZSH](https://archlinux.org/packages/extra/x86_64/zsh/) and focus on using it without the great work of big Plugin-Manager like [Oh My Zsh](https://github.com/ohmyzsh/ohmyzsh).
