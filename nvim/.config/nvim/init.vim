@@ -108,7 +108,7 @@ call plug#end()
 	autocmd FileType hpp setlocal spell spelllang=en
 	autocmd FileType h setlocal spell spelllang=en
 	autocmd FileType gitcommit setlocal spell spelllang=en
-	autocmd FileType mail setlocal spell spelllang=de
+	autocmd FileType mail setlocal spell spelllang=de,en
 
 "Linenumbering"
 "Das ist eine Funktion um einfach zwischen relativen und absoluten
