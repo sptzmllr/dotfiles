@@ -18,6 +18,10 @@ alias ll='ls -lah'
 # build
 alias make='make -j8'
 
+# Zathura pdf
+alias zathura='zathura --fork'
+alias pdf='zathura --fork'
+
 # mkdir
 # Allways make parents
 alias mkdir='mkdir -p'
