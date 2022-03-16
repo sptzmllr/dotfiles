@@ -175,6 +175,9 @@ lua <<EOF
   }
 EOF
 
+"Signcolumn für Hinweise von LSP etc"
+	set signcolumn=yes
+
 "Header Files"
 	set path=.,/usr/local/include/saga/saga_core/,/usr/include/
 
