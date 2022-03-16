@@ -111,6 +111,13 @@ while :; do
 	sleep 5
 done &
 
+# Settings
+while :; do
+
+	echo "SET\uf992" > $fifo
+	sleep 5
+done &
+
 # Volume
 while read -r line; do
     #current=$(pactl list sinks | awk '/\tVolume/ {print $5}')
@@ -162,6 +169,7 @@ done &
 
 tail -f $fifo | $(dirname -- $0)/parser.sh | lemonbar \
 	-p \
+	-a 11 \
 	-g "x25+0+0" \
 	-B "${color_bg}" \
 	-F "${color_fg}" \
