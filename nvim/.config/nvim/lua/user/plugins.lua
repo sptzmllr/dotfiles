@@ -54,6 +54,7 @@ return packer.startup(function(use)
   use "f3fora/cmp-spell" -- cmd for spell
 
   use "arcticicestudio/nord-vim" --nord theme 
+  --use "shaunsingh/nord.nvim"
 
   -- snippets
   use "L3MON4D3/LuaSnip" --snippet engine
