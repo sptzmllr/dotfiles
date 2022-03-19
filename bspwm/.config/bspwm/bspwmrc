@@ -6,6 +6,7 @@ xset b off &
 xmodmap ~/.Xmodmap &
 solaar -w hide & 
 ~/.config/lemonbar/lemonbar.sh &
+udiskie --no-notify &
 
 bspc monitor -d 1 2 3 4 5 6 7 8 9 10
 
