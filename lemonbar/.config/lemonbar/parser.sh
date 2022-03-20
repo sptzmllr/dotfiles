@@ -79,9 +79,9 @@ while read -r line; do
 		%{r}\
 		${bluetooth_strt}\
 		%{A:./bt.sh &:} ${bluetooth} %{A}\
-		%{A:urxvt -e "bluetoothctl" &:}${bluetooth_ext}%{A}\
-		%{A:urxvt -e "neomutt" &:} ${mail} %{A}\
-		%{A:urxvt -e "newsboat" &:} ${rss} %{A}\
+		%{A:alacritty -e "bluetoothctl" &:}${bluetooth_ext}%{A}\
+		%{A:alacritty -e "neomutt" &:} ${mail} %{A}\
+		%{A:alacritty -e "newsboat" &:} ${rss} %{A}\
 		${brightness_strt}\
 		%{A:./lightext.sh &:} ${brightness} %{A}${brightness_ext}\
 		${volume_strt}\
