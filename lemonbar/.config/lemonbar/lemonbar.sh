@@ -112,11 +112,12 @@ while :; do
 done &
 
 # Settings
-while :; do
-
-	echo "SET\uf992" > $fifo
-	sleep 5
-done &
+#while :; do
+#
+#	echo "SET\uf992" > $fifo
+#	sleep 5
+#done &
+#echo "SET\uf992" > $fifo
 
 # Volume
 while read -r line; do

@@ -68,9 +68,9 @@ while read -r line; do
 			bluetooth_strt=$( echo "${line#???}" | cut -c -11 )
 			#bluetooth_ext="${line#???}"
             ;;
-		SET*)
-			settings="${line#???}"
-			;;
+		#SET*)
+		#	settings="${line#???}"
+		#	;;
         *) ;;
     esac
 
@@ -92,6 +92,6 @@ while read -r line; do
 		${cpu_ext}\
 		${bat_beg}\
 		%{A:./battime.sh &:} ${battery} %{A}${bat_end}  ${date} \
-		%{A:./settings.sh &:} ${settings} %{A} "
+		%{A:./settings.sh &:} \uf992 %{A} "
 done
 		#%{r} %{A:urxvt -e "bluetoothctl" &:}${bluetooth}${bluetoothext}%{A}  \
