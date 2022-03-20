@@ -44,6 +44,15 @@ for k, v in pairs(options) do
   vim.opt[k] = v
 end
 
+vim.cmd [[autocmd FileType tex setlocal spell spelllang=de]]
+vim.cmd [[autocmd FileType markdown setlocal spell spelllang=de,en]]
+vim.cmd [[autocmd FileType markdown setlocal complete+=kspell]]
+vim.cmd [[autocmd FileType cpp setlocal spell spelllang=en]]
+vim.cmd [[autocmd FileType hpp setlocal spell spelllang=en]]
+vim.cmd [[autocmd FileType h setlocal spell spelllang=en]]
+vim.cmd [[autocmd FileType gitcommit setlocal spell spelllang=en]]
+vim.cmd [[autocmd FileType mail setlocal spell spelllang=de]]
+
 vim.cmd "set whichwrap+=<,>,[,],h,l"
 vim.cmd [[set iskeyword+=-]]
 vim.cmd [[set formatoptions-=cro]] -- TODO: this doesn't seem to work
