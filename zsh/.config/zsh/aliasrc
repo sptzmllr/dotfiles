@@ -22,6 +22,9 @@ alias make='make -j8'
 alias zathura='zathura --fork'
 alias pdf='zathura --fork'
 
+# LF
+alias lf='~/.config/lf/lfub'
+
 # mkdir
 # Allways make parents
 alias mkdir='mkdir -p'
