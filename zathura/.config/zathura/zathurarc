@@ -36,6 +36,8 @@ set default-fg                  "#d8dee9" # nord4
 
 set font "Input normal 11"
 
+set selection-clipboard clipboard
+
 map c recolor
 
 set recolor                     true
