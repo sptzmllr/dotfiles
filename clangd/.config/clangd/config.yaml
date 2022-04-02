@@ -1,2 +1,2 @@
 CompileFlags:
-  Add: -ferror-limit=10000
+  Add: [ --include-directory=/usr/include/saga , -Wall, -ferror-limit=10000, -D_TYPEDEF_BYTE, -D_TYPEDEF_WORD, -D_SAGA_UNICODE]
