@@ -52,6 +52,9 @@ vim.cmd [[autocmd FileType hpp setlocal spell spelllang=en]]
 vim.cmd [[autocmd FileType h setlocal spell spelllang=en]]
 vim.cmd [[autocmd FileType gitcommit setlocal spell spelllang=en]]
 vim.cmd [[autocmd FileType mail setlocal spell spelllang=de]]
+vim.cmd [[autocmd BufRead * autocmd FileType <buffer> ++once
+      		\ if &ft !~# 'commit\|rebase' && line("'\"") > 1 && line("'\"") <= line("$")
+			\ | exe 'normal! g`"' | endif]]
 
 vim.cmd "set whichwrap+=<,>,[,],h,l"
 vim.cmd [[set iskeyword+=-]]
