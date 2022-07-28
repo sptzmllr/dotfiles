@@ -27,6 +27,19 @@ while :; do
 	sleep 0.1
 done &
 
+# pacman Packages to update
+while :; do
+	packupdate=$(checkupdates | wc -l)
+
+	if [[ packupdate -gt 0 ]]; then
+		echo "PAC\uf8d3 ${packupdate}" > $fifo
+	else
+		echo "PAC" > $fifo
+	fi
+
+	sleep 1h;
+done &
+
 # Unread Mutt Mail
 while :; do
 	unread=$(notmuch count tag:unread)

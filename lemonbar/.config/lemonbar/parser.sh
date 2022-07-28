@@ -17,6 +17,9 @@ while read -r line; do
 		TIT*)
 			title="${line#???}"
 			;;
+		PAC*)
+			pac="${line#???}"
+			;;
 		MAL*)
 			mail="${line#???}"
 			;;
@@ -77,6 +80,7 @@ while read -r line; do
     echo -e "%{l}${desktop} \
 		%{B${color_hl2}} ${title} %{B-} \
 		%{r}\
+		${pac}\
 		${bluetooth_strt}\
 		%{A:./bt.sh &:} ${bluetooth} %{A}\
 		%{A:alacritty -e "bluetoothctl" &:}${bluetooth_ext}%{A}\
