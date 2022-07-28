@@ -1,2 +1,4 @@
 CompileFlags:
   Add: [ --include-directory=/usr/include/saga , -Wall, -ferror-limit=10000, -D_TYPEDEF_BYTE, -D_TYPEDEF_WORD, -D_SAGA_UNICODE]
+  Add: [-I/usr/lib/wx/include/gtk3-unicode-3.1, -I/usr/include/wx-3.1, -D_FILE_OFFSET_BITS=64, -DWXUSINGDLL, -D__WXGTK__, -pthread]
+  Compiler: g++
