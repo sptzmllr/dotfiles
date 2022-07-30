@@ -25,6 +25,8 @@ alias pdf='zathura --fork'
 # LF
 alias lf='~/.config/lf/lfub'
 
+alias bat='bat --theme Nord'
+
 # mkdir
 # Allways make parents
 alias mkdir='mkdir -p'
