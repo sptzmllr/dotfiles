@@ -20,6 +20,9 @@ while read -r line; do
 		PAC*)
 			pac="${line#???}"
 			;;
+		INS*)
+			chat="${line#???}"
+			;;
 		MAL*)
 			mail="${line#???}"
 			;;
@@ -85,6 +88,7 @@ while read -r line; do
 		%{A:./bt.sh &:} ${bluetooth} %{A}\
 		%{A:alacritty -e "bluetoothctl" &:}${bluetooth_ext}%{A}\
 		%{A:alacritty -e "neomutt" &:} ${mail} %{A}\
+		%{A:bspc desktop -f 7 &:} ${chat} %{A}\
 		%{A:alacritty -e "newsboat" &:} ${rss} %{A}\
 		${brightness_strt}\
 		%{A:./lightext.sh &:} ${brightness} %{A}${brightness_ext}\

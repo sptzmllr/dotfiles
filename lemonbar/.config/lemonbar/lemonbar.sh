@@ -37,7 +37,52 @@ while :; do
 		echo "PAC" > $fifo
 	fi
 
-	sleep 1h;
+	sleep 10m;
+done &
+
+while :; do
+	service_count=0
+	message_count=0
+	signal=$(xdotool search --name Signal)
+	if [ $? -eq 0 ]; then
+		service_count=$((service_count + 1))
+		signal_count=$(xprop -id $(xdotool search --name Signal | head -1) | grep "NET_WM_NAME" | tr -d '()"' | awk '{print $4}')
+		echo $signal_count
+		message_count=$((message_count + signal_count))
+
+	fi
+
+	matrix=$(xdotool search --name Fractal)
+	if [ $? -eq 0 ]; then
+		service_count=$((service_count + 1))
+		frac_count=$(xprop -id $(xdotool search --name Fractal | head -1) | grep "NET_WM_NAME" | tr -d '[]"' | awk '{print $4}')
+		message_count=$((message_count + frac_count))
+	fi
+
+	# elif [[ matrix -eq 1 ]]; then
+	#	service_count++
+#	else
+
+	# on the glyphes currently i use the checkbox glyphe from nerdfont
+	# this is extendable to one or two more messagin services 
+	# Other possible glyphes from nerdfont are: checkbox, dice,
+	# numeric, shield, moon
+	unread_msg=""
+	if [[ message_count -gt 0 ]]; then
+		unread_msg=" ${message_count}"
+	fi
+
+	chatglyphe="\uf630"
+	if [[ service_count -eq 1 ]]; then
+		chatglyphe="\uf62d"
+	elif [[ service_count -eq 2 ]]; then
+		chatglyphe="\uf635"
+	fi
+		
+		echo "INS\uf868 ${chatglyphe}${unread_msg}" > $fifo
+
+
+	sleep 1;
 done &
 
 # Unread Mutt Mail
