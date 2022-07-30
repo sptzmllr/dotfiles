@@ -82,7 +82,7 @@ while :; do
 		echo "INS\uf868 ${chatglyphe}${unread_msg}" > $fifo
 
 
-	sleep 1;
+	sleep 1m;
 done &
 
 # Unread Mutt Mail
