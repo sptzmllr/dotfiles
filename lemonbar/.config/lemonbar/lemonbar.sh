@@ -52,11 +52,14 @@ while :; do
 
 	fi
 
-	matrix=$(xdotool search --name Fractal)
+	matrix=$(xdotool search --name Element)
 	if [ $? -eq 0 ]; then
 		service_count=$((service_count + 1))
-		frac_count=$(xprop -id $(xdotool search --name Fractal | head -1) | grep "NET_WM_NAME" | tr -d '[]"' | awk '{print $4}')
-		message_count=$((message_count + frac_count))
+		element_count=$(xprop -id $(xdotool search --name Element | head -1) | grep "NET_WM_NAME" | tr -d '[]"' | awk '{print $4}')
+		if [[ "${element_count}" == "|" ]]; then
+			element_count=0	
+		fi
+		message_count=$((message_count + element_count))
 	fi
 
 	# elif [[ matrix -eq 1 ]]; then
