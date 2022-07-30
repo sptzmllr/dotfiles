@@ -33,6 +33,7 @@ I use [ZSH](https://archlinux.org/packages/extra/x86_64/zsh/) and focus on using
 - [ZSH](https://archlinux.org/packages/extra/x86_64/zsh/)
 - [zsh-syntax-highlighting](https://archlinux.org/packages/community/any/zsh-syntax-highlighting/)
 - [zsh-autosuggestions](https://archlinux.org/packages/community/any/zsh-autosuggestions/)
+- [zsh-vi-mode](https://aur.archlinux.org/packages/zsh-vi-mode)
 - [autojump](https://aur.archlinux.org/packages/autojump/) (AUR)
 
 At this time i use the [pure promt](https://github.com/sindresorhus/pure) follow the instructions there for installation. Note i don't have a `~/.zsh` directory instead i have the repo in my `~/code` directory. Tweak this in your deployment in the `~/.zshrc`.
