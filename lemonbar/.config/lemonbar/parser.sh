@@ -23,12 +23,16 @@ while read -r line; do
 		INS*)
 			chat="${line#???}"
 			;;
+        INX*)
+			chat_ext=$( echo $line | cut -c 15-)
+			chat_strt=$( echo "${line#???}" | cut -c -11)
+            ;;
 		MAL*)
 			mail="${line#???}"
 			;;
-		RSS*)
-			rss="${line#???}"
-			;;
+#		RSS*)
+#			rss="${line#???}"
+#			;;
         BRI*)
             brightness="${line#???}"
             ;;
@@ -70,8 +74,10 @@ while read -r line; do
 			cpu_strt=$( echo "${line#???}" | cut -c -11 )
             ;;
 		BTE*)
-			bluetooth_ext=$( echo $line | cut -c 15-)
-			bluetooth_strt=$( echo "${line#???}" | cut -c -11 )
+			bluetooth_ext=$( echo $line | cut -c 48-)
+			bluetooth_strt=$( echo "${line#???}" | cut -c -45 )
+			echo ${bluetooth_ext}
+			echo ${bluetooth_strt} 
 			#bluetooth_ext="${line#???}"
             ;;
 		#SET*)
@@ -80,16 +86,17 @@ while read -r line; do
         *) ;;
     esac
 
+		#%{A:alacritty -e "newsboat" &:} ${rss} %{A}\
     echo -e "%{l}${desktop} \
 		%{B${color_hl2}} ${title} %{B-} \
 		%{r}\
 		${pac}\
 		${bluetooth_strt}\
 		%{A:./bt.sh &:} ${bluetooth} %{A}\
-		%{A:alacritty -e "bluetoothctl" &:}${bluetooth_ext}%{A}\
+		${bluetooth_ext}\
 		%{A:alacritty -e "neomutt" &:} ${mail} %{A}\
-		%{A:bspc desktop -f 7 &:} ${chat} %{A}\
-		%{A:alacritty -e "newsboat" &:} ${rss} %{A}\
+		${chat_strt}\
+		%{A:./messenger_extension.sh &:} ${chat} %{A}$chat_ext\
 		${brightness_strt}\
 		%{A:./lightext.sh &:} ${brightness} %{A}${brightness_ext}\
 		${volume_strt}\

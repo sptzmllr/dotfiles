@@ -19,7 +19,9 @@ fi
 #	esac
 #done
 
-declare output="BTE%{B$color_bg2}"
+		#%{A:alacritty -e "bluetoothctl" &:}${bluetooth_ext}%{A}\
+
+declare output="BTE%{B$color_bg2}%{A:alacritty -e "bluetoothctl" &:}"
 
 bluetoothctl devices | while read -r line ; do
 	btmac=$(echo $line | awk '{print $2}')	
@@ -45,7 +47,8 @@ bluetoothctl devices | while read -r line ; do
 	#	output="${output} No Devices"
 	#fi
 	
-	echo "$output %{B-} " > $fifo
+	echo "$output %{A}%{B-} " #> $fifo
+	echo "$output %{A}%{B-} " > $fifo
 done
 
 

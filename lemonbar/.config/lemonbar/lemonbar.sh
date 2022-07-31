@@ -13,7 +13,7 @@ trap 'pkill lemonbar; kill $(jobs -p)' EXIT
 # Date
 while :; do
 	date "+DAT%d.%m %H:%M" > $fifo
-    sleep 1;
+    sleep 0.5m;
 done &
 
 # BSPWM desktops
@@ -22,10 +22,11 @@ while read -r line; do
 done < <(bspc subscribe desktop) &
 
 # Xtitle output
-while :; do
+while read -r line; do
+	#xtitle -f 'TIT%s\n' > $fifo
 	xtitle -f 'TIT%s\n' > $fifo
-	sleep 0.1
-done &
+	#sleep 0.1
+done < <(bspc subscribe node) &
 
 # pacman Packages to update
 while :; do
@@ -47,7 +48,6 @@ while :; do
 	if [ $? -eq 0 ]; then
 		service_count=$((service_count + 1))
 		signal_count=$(xprop -id $(xdotool search --name Signal | head -1) | grep "NET_WM_NAME" | tr -d '()"' | awk '{print $4}')
-		echo $signal_count
 		message_count=$((message_count + signal_count))
 
 	fi
@@ -75,14 +75,12 @@ while :; do
 		unread_msg=" ${message_count}"
 	fi
 
-	chatglyphe="\uf630"
-	if [[ service_count -eq 1 ]]; then
-		chatglyphe="\uf62d"
-	elif [[ service_count -eq 2 ]]; then
-		chatglyphe="\uf635"
+	chatglyphe="\uf860"
+	if [[ service_count -gt 0 ]]; then
+		chatglyphe="\uf868"
 	fi
 		
-		echo "INS\uf868 ${chatglyphe}${unread_msg}" > $fifo
+		echo "INS${chatglyphe}${unread_msg}" > $fifo
 
 
 	sleep 1m;
@@ -105,20 +103,20 @@ while :; do
 done &
 
 # Unread RSS Newsboat
-while :; do
-	feed=$(newsboat -x print-unread | awk '{print $1}')
+#while :; do
+#	feed=$(newsboat -x print-unread | awk '{print $1}')
 
-	if [[ $feed -gt 0 ]]; then
-		rss="\uf96b"
-	else
-		rss="\uf96b"
-		feed=""
-	fi
-
-	echo "RSS${rss} ${feed}" > $fifo
-
-	sleep 5;
-done &
+##	if [[ $feed -gt 0 ]]; then
+#		rss="\uf96b"
+#	else
+#		rss="\uf96b"
+#		feed=""
+#	fi
+#
+#	echo "RSS${rss} ${feed}" > $fifo
+#
+#	sleep 5;
+#done &
 
 # Brightness
 while :; do
@@ -231,7 +229,7 @@ done &
 
 tail -f $fifo | $(dirname -- $0)/parser.sh | lemonbar \
 	-p \
-	-a 11 \
+	-a 23 \
 	-g "x25+0+0" \
 	-B "${color_bg}" \
 	-F "${color_fg}" \

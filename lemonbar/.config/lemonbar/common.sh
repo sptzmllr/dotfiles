@@ -26,14 +26,31 @@ esac
 bri_msg="0"
 
 bspc_desktops() {
+	# query all desktops and occupied desktops
     desktops=$(bspc query -D --names)
+	occupied=$(bspc query -D -d .occupied --names)
     buf=""
+
+	# check every element in the desktop array
     for d in ${desktops[@]}; do
+
+		# First set the number foreground to gray (not occupied is default)
+		number="%{F${color_bg2}}${d}%{F-}"
+		# check ever element in the occupied array. If if matches, remove the
+		# foreground so it is not grayed out anymore
+		for o in ${occupied[@]}; do 
+			if [[ ${o} -eq ${d} ]]; then
+				number="${d}"
+			fi
+		done
+
+		# check the current desktopnumber if it is focused and change background
         if [[ "$(bspc query -D -d focused --names)" == "${d}" ]]; then
-            buf="${buf}%{B${color_hl2}} ${d} %{B-}"
-        else
-            buf="${buf} ${d} "
-        fi
+            buf="${buf}%{B${color_hl2}}%{A:bspc desktop -f ${d} &:} ${number} %{A}%{B-}"
+		else
+            buf="${buf}%{A:bspc desktop -f ${d} &:} ${number} %{A}"
+            #buf="${buf} ${number} "
+		fi
     done
 
     echo "${buf}"
