@@ -8,6 +8,7 @@ Stow symlinks the contents of this Repository to the path relativ from the Deplo
 - Settings for:
 	- bspwm
 	- sxhkd
+	- glow
 	- vim
 	- rofi
 	- nvim
