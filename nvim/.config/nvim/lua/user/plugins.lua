@@ -54,8 +54,12 @@ return packer.startup(function(use)
   use "saadparwaiz1/cmp_luasnip" -- snippet completions
   use "f3fora/cmp-spell" -- cmd for spell
 
-  --use "arcticicestudio/nord-vim" --nord theme 
-  use "shaunsingh/nord.nvim"
+  -- Themes
+  use "arcticicestudio/nord-vim" --nord theme 
+  --use "shaunsingh/nord.nvim" --another nord theme 
+
+  -- Markdown
+  use "ellisonleao/glow.nvim"
 
   -- snippets
   use "L3MON4D3/LuaSnip" --snippet engine
