@@ -53,12 +53,16 @@ return packer.startup(function(use)
   use "saadparwaiz1/cmp_luasnip" -- snippet completions
   use "f3fora/cmp-spell" -- cmd for spell
 
-  use "arcticicestudio/nord-vim" --nord theme 
-  --use "shaunsingh/nord.nvim"
+  --use "arcticicestudio/nord-vim" --nord theme 
+  use "shaunsingh/nord.nvim"
 
   -- snippets
   use "L3MON4D3/LuaSnip" --snippet engine
   use "rafamadriz/friendly-snippets" -- a bunch of snippets to use
+
+  -- Lsp 
+  use "neovim/nvim-lspconfig" -- enable lsp
+
   
   -- Treesitter
   use{ "nvim-treesitter/nvim-treesitter", run = ":TSUpdate", }
