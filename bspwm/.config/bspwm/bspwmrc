@@ -8,10 +8,19 @@ solaar -w hide &
 ~/.config/lemonbar/lemonbar.sh &
 udiskie --no-notify &
 
-bspc monitor -d 1 2 3 4 5 6 7 8 9 10
+bspc config remove_unplugged_monitors true
+bspc config remove_disabled_monitors true
+
+if lsusb | grep -q "40AY"; then
+	xrandr --output eDP1 --off --output DP1 --off --output DP2 --off --output DP2-1 --mode 2560x1440 --pos 0x0 --rotate normal --output DP2-2 --off --output DP2-3 --off --output HDMI1 --off --output HDMI2 --off --output VIRTUAL1 --off
+	bspc monitor DP2-1 -d 1 2 3 4 5 6 7 8 9 10
+else
+	xrandr --output eDP1 --primary --mode 1920x1080 --pos 0x0 --rotate normal --output DP1 --off --output DP2 --off --output HDMI1 --off --output HDMI2 --off --output VIRTUAL1 --off
+	bspc monitor -d 1 2 3 4 5 6 7 8 9 10
+fi
 
 bspc config border_width         2
-bspc config window_gap          30
+bspc config window_gap         	 0
 
 bspc config split_ratio          0.52
 bspc config borderless_monocle   true
@@ -34,4 +43,5 @@ bspc rule -a torbrowser-launcher state=floating
 bspc rule -a Spotify desktop='^1' state=floating
 bspc rule -a Arandr state=floating
 bspc rule -a mpv state=floating
+bspc rule -a feh state=floating
 bspc rule -a Pavucontrol state=floating
