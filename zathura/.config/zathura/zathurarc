@@ -40,7 +40,7 @@ set selection-clipboard clipboard
 
 map c recolor
 
-set recolor                     true
+set recolor                     false
 set recolor-darkcolor          "#d8dee9" # nord4
 set recolor-lightcolor           "#2e3440" # nord0
 # set recolor-keephue false

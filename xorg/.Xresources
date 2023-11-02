@@ -11,6 +11,10 @@ URxvt.imLocale: LC_CTYPE="en_GB.UTF-8"
 URxvt*scrollBar: false
 ! Nord color scheme
 
+ Xcursor.size: 16
+
+XSECURELOCK_PASSWORD_PROMPT: asterisks
+
 #define nord0 #2E3440
 #define nord1 #3B4252
 #define nord2 #434C5E
@@ -31,6 +35,8 @@ URxvt*scrollBar: false
 *.foreground:   nord4
 *.background:   nord0
 *.cursorColor:  nord4
+window.background: nord0
+window.foreground: nord4
 !*fading: 35
 !*qfadeColor: nord3
 
