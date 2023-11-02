@@ -17,7 +17,7 @@ colors:
     matches:
       foreground: CellBackground
       background: '#88c0d0'
-    bar:
+    footer_bar:
       background: '#434c5e'
       foreground: '#d8dee9'
   normal:
@@ -47,6 +47,7 @@ colors:
     magenta: '#8c738c'
     cyan: '#6d96a5'
     white: '#aeb3bb'
+
 # Import additional configuration files
 #
 # Imports are loaded in order, skipping all missing files, with the importing
@@ -61,7 +62,8 @@ colors:
 # Any items in the `env` entry below will be added as
 # environment variables. Some entries may override variables
 # set by alacritty itself.
-#env:
+env:
+  WINIT_X11_SCALE_FACTOR: "1"
   # TERM variable
   #
   # This value is used to set the `$TERM` environment variable for
@@ -203,14 +205,15 @@ font:
     #style: Bold Italic
 
   # Point size
-  size: 7.0
+  size: 11.0
 
   # Offset is the extra space around each character. `offset.y` can be thought
   # of as modifying the line spacing, and `offset.x` as modifying the letter
   # spacing.
-  #offset:
-  #  x: 0
-  #  y: 0
+  offset:
+    x: -1
+    y: 0
+
 
   # Glyph offset determines the locations of the glyphs within their cells with
   # the default being at the bottom. Increasing `x` moves the glyph to the
