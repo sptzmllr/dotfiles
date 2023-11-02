@@ -9,11 +9,8 @@ fi
 
 . ./common.sh
 
-declare output="SET%{B$color_bg2} %{A:./screenmenu.sh} \uf992 %{A}\uf8df \uf925  "
-
-
-echo "$output %{B-} " > $fifo
+echo "SET%{B$color_bg2}%{A:sudo shutdown now &:}\uf011 shutdown %{A}%{A:sudo reboot now &:} \uf021 reboot%{A}%{A:xsecurelock &:} \uf023 lock%{A} %{B-}" > $fifo
 
 sleep 10
 
-echo "BTE" > $fifo
+echo "SET" > $fifo

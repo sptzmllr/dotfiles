@@ -28,14 +28,27 @@ while read -r line; do
 	#sleep 0.1
 done < <(bspc subscribe node) &
 
-# pacman Packages to update
+# check selected git repos
+while :; do
+	count=$(./repo_checker.sh --count)
+
+	if [[ count -gt 0 ]]; then
+		echo "GIT\ue725 ${count}" > $fifo
+	else
+		echo "GIT" > $fifo
+	fi
+
+	sleep 10s;
+done &
+
+# pacman packages to update
 while :; do
 	packupdate=$(checkupdates | wc -l)
 
-	if [[ packupdate -gt 0 ]]; then
-		echo "PAC\uf8d3 ${packupdate}" > $fifo
+	if [[ packupdate -gt 10 ]]; then
+		echo "pac\uf8d3 ${packupdate}" > $fifo
 	else
-		echo "PAC" > $fifo
+		echo "pac" > $fifo
 	fi
 
 	sleep 10m;
@@ -56,7 +69,7 @@ while :; do
 	if [ $? -eq 0 ]; then
 		service_count=$((service_count + 1))
 		element_count=$(xprop -id $(xdotool search --name Element | head -1) | grep "NET_WM_NAME" | tr -d '[]"' | awk '{print $4}')
-		if [[ "${element_count}" == "|" ]]; then
+		if [[ "${element_count}" == "*" ]]; then
 			element_count=0	
 		fi
 		message_count=$((message_count + element_count))
@@ -75,9 +88,9 @@ while :; do
 		unread_msg=" ${message_count}"
 	fi
 
-	chatglyphe="\uf860"
+	chatglyphe="\uf0e5"
 	if [[ service_count -gt 0 ]]; then
-		chatglyphe="\uf868"
+		chatglyphe="\uf075"
 	fi
 		
 		echo "INS${chatglyphe}${unread_msg}" > $fifo
@@ -103,20 +116,20 @@ while :; do
 done &
 
 # Unread RSS Newsboat
-#while :; do
-#	feed=$(newsboat -x print-unread | awk '{print $1}')
+while :; do
+	feed=$(newsboat -x print-unread | awk '{print $1}')
 
-##	if [[ $feed -gt 0 ]]; then
-#		rss="\uf96b"
-#	else
-#		rss="\uf96b"
-#		feed=""
-#	fi
-#
-#	echo "RSS${rss} ${feed}" > $fifo
-#
-#	sleep 5;
-#done &
+	if [[ $feed -gt 0 ]]; then
+		rss="\uf96b"
+	else
+		rss="\uf96b"
+		feed=""
+	fi
+
+	echo "RSS${rss} ${feed}" > $fifo
+
+	sleep 300;
+done &
 
 # Brightness
 while :; do
