@@ -20,6 +20,9 @@ while read -r line; do
 		PAC*)
 			pac="${line#???}"
 			;;
+		GIT*)
+			git="${line#???}"
+			;;
 		INS*)
 			chat="${line#???}"
 			;;
@@ -30,9 +33,9 @@ while read -r line; do
 		MAL*)
 			mail="${line#???}"
 			;;
-#		RSS*)
-#			rss="${line#???}"
-#			;;
+		RSS*)
+			rss="${line#???}"
+			;;
         BRI*)
             brightness="${line#???}"
             ;;
@@ -74,26 +77,26 @@ while read -r line; do
 			cpu_strt=$( echo "${line#???}" | cut -c -11 )
             ;;
 		BTE*)
-			bluetooth_ext=$( echo $line | cut -c 48-)
-			bluetooth_strt=$( echo "${line#???}" | cut -c -45 )
-			echo ${bluetooth_ext}
-			echo ${bluetooth_strt} 
+			bluetooth_ext=$( echo $line | cut -c 15-)
+			bluetooth_strt=$( echo "${line#???}" | cut -c -11 )
 			#bluetooth_ext="${line#???}"
             ;;
-		#SET*)
-		#	settings="${line#???}"
-		#	;;
+		SET*)
+			settings_ext=$( echo $line | cut -c 15-)
+			settings_strt=$( echo "${line#???}" | cut -c -11 )
+			;;
         *) ;;
     esac
 
-		#%{A:alacritty -e "newsboat" &:} ${rss} %{A}\
     echo -e "%{l}${desktop} \
 		%{B${color_hl2}} ${title} %{B-} \
 		%{r}\
+		${git}\
 		${pac}\
 		${bluetooth_strt}\
 		%{A:./bt.sh &:} ${bluetooth} %{A}\
 		${bluetooth_ext}\
+		%{A:alacritty -e "newsboat" &:} ${rss} %{A}\
 		%{A:alacritty -e "neomutt" &:} ${mail} %{A}\
 		${chat_strt}\
 		%{A:./messenger_extension.sh &:} ${chat} %{A}$chat_ext\
@@ -107,6 +110,8 @@ while read -r line; do
 		${cpu_ext}\
 		${bat_beg}\
 		%{A:./battime.sh &:} ${battery} %{A}${bat_end}  ${date} \
-		%{A:./settings.sh &:} \uf992 %{A} "
+		${settings_strt}\
+		%{A:./settings.sh &:} \uf992${settings} %{A}\
+		${settings_ext}"
 done
 		#%{r} %{A:urxvt -e "bluetoothctl" &:}${bluetooth}${bluetoothext}%{A}  \
