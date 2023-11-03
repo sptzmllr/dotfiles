@@ -242,7 +242,7 @@ done &
 
 tail -f $fifo | $(dirname -- $0)/parser.sh | lemonbar \
 	-p \
-	-a 23 \
+	-a 24 \
 	-g "x25+0+0" \
 	-B "${color_bg}" \
 	-F "${color_fg}" \

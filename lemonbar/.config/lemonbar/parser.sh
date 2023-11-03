@@ -23,6 +23,10 @@ while read -r line; do
 		GIT*)
 			git="${line#???}"
 			;;
+		GIX*)
+			git_end=$( echo $line | cut -c 15-)
+			git_start=$( echo "${line#???}" | cut -c -11)
+			;;
 		INS*)
 			chat="${line#???}"
 			;;
@@ -91,7 +95,9 @@ while read -r line; do
     echo -e "%{l}${desktop} \
 		%{B${color_hl2}} ${title} %{B-} \
 		%{r}\
-		${git}\
+		${git_start}\
+		%{A:./git_text.sh &:} ${git} %{A}\
+		${git_end}\
 		${pac}\
 		${bluetooth_strt}\
 		%{A:./bt.sh &:} ${bluetooth} %{A}\
