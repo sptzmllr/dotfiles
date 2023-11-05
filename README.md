@@ -15,8 +15,7 @@ Stow symlinks the contents of this Repository to the path relativ from the Deplo
 	- Xorg
 	- zsh
 
-For a single configuration you can use i.e. `stow -vt ~ vim` to deploy the contents of the `/vim` folder to the Home Directory.
-To deploy everything just use `stow -vt ~ *`
+For a single configuration you can use i.e. `stow --no-folding --verbose --target ~ lemonbar` to deploy the contents of the `/lemonbar` folder to the Home Directory.
 
 ## nvim
 
