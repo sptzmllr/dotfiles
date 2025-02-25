@@ -53,6 +53,9 @@ return packer.startup(function(use)
   use "hrsh7th/cmp-nvim-lsp" -- LSP source 
   use "saadparwaiz1/cmp_luasnip" -- snippet completions
   use "f3fora/cmp-spell" -- cmd for spell
+  use "liuchengxu/vista.vim" -- sidebar with lsp support
+
+  
 
   -- Themes
   use "arcticicestudio/nord-vim" --nord theme 

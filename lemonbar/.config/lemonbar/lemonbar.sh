@@ -46,9 +46,9 @@ while :; do
 	packupdate=$(checkupdates | wc -l)
 
 	if [[ packupdate -gt 10 ]]; then
-		echo "pac\uf8d3 ${packupdate}" > $fifo
+		echo "PAC\uf8d3 ${packupdate}" > $fifo
 	else
-		echo "pac" > $fifo
+		echo "PAC" > $fifo
 	fi
 
 	sleep 10m;
@@ -117,16 +117,21 @@ done &
 
 # Unread RSS Newsboat
 while :; do
-	feed=$(newsboat -x print-unread | awk '{print $1}')
+	error="Error: an instance of Newsboat is already running"
+	output=$(newsboat -x print-unread)
 
-	if [[ $feed -gt 0 ]]; then
-		rss="\uf96b"
-	else
-		rss="\uf96b"
-		feed=""
+	if [[ $output != *"$error"* ]]; then
+		
+		feed=$(echo "$output" | awk '{print $1}')
+		if [[ $feed -gt 10 ]]; then
+			rss="\uf96b"
+		else
+			rss="\uf96b"
+			feed=""
+		fi
+
+		echo "RSS${rss} ${feed}" > $fifo
 	fi
-
-	echo "RSS${rss} ${feed}" > $fifo
 
 	sleep 300;
 done &

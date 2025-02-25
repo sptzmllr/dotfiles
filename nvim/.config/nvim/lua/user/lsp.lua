@@ -59,6 +59,8 @@ lsp["clangd"].setup {
 
 lsp.pyright.setup{}
 
+lsp.texlab.setup{}
+
 -- lsp.arduino_language_server.setup{}
 
 -- Use a loop to conveniently call 'setup' on multiple servers and
